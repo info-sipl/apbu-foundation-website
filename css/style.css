@@ -481,14 +481,20 @@ h1, h2, h3, h4, h5,
   .site-navbar .site-logo {
     margin: 0;
     padding: 0;
-    font-size: 1.7rem; }
+    font-size: clamp(0.8rem, 1.35vw, 1.25rem);
+    line-height: 1.2;
+    max-width: 390px; }
     .site-navbar .site-logo a {
       color: #0F766E;
-      text-transform: lowercase; }
+      display: block;
+      white-space: nowrap; }
     @media (max-width: 991.98px) {
       .site-navbar .site-logo {
         float: left;
-        position: relative; } }
+        position: relative;
+        max-width: calc(100% - 55px); }
+      .site-navbar .site-logo a {
+        white-space: normal; } }
   .site-navbar .site-navigation.border-bottom {
     border-bottom: 1px solid white !important; }
   .site-navbar .site-navigation .site-menu {
