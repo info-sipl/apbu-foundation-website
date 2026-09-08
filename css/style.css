@@ -1830,6 +1830,21 @@ h1, h2, h3, h4, h5,
   -ms-flex: 0 0 100px;
   flex: 0 0 100px; }
 
+.event-card {
+  max-width: none;
+  padding: 0 15px; }
+
+.event-banner {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  object-fit: cover; }
+
+@media (max-width: 767.98px) {
+  .event-card {
+    padding: 0 30px; }
+}
+
 .event-29191 h3 {
   font-size: 20px;
   line-height: 1.5; }
