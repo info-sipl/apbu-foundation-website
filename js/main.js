@@ -232,6 +232,30 @@ jQuery(document).ready(function($) {
 	
 
 	var siteCarousel = function () {
+		if ( $('.apbu-gallery').length > 0 ) {
+			$('.apbu-gallery').owlCarousel({
+				items: 3,
+				loop: true,
+				margin: 18,
+				nav: false,
+				dots: true,
+				autoplay: true,
+				autoplayTimeout: 3000,
+				autoplayHoverPause: true,
+				smartSpeed: 700,
+				responsive: {
+					0: { items: 1 },
+					768: { items: 3 }
+				}
+			});
+			$('.apbu-gallery-control--prev').on('click', function() {
+				$('.apbu-gallery').trigger('prev.owl.carousel');
+			});
+			$('.apbu-gallery-control--next').on('click', function() {
+				$('.apbu-gallery').trigger('next.owl.carousel');
+			});
+		}
+
 		if ( $('.nonloop-block-13').length > 0 ) {
 			$('.nonloop-block-13').owlCarousel({
 		    center: false,

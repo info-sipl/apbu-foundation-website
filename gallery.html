@@ -2,9 +2,38 @@
 <html lang="en">
 
 <head>
-  <title>APBU Foundation</title>
+  <title>Gallery &amp; Updates | APBU Foundation West Bengal</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="See APBU Foundation's community updates, events, and work supporting children and communities in West Bengal, India.">
+  <meta name="author" content="Aranyanchal Prativa Bikash Udyog Foundation">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="content-language" content="en-IN">
+  <meta name="geo.region" content="IN-WB">
+  <meta name="geo.placename" content="West Bengal, India">
+  <link rel="canonical" href="https://www.apbufoundation.org/gallery.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="APBU Foundation">
+  <meta property="og:title" content="Gallery &amp; Updates | APBU Foundation West Bengal">
+  <meta property="og:description" content="See APBU Foundation's community updates, events, and work supporting children and communities in West Bengal, India.">
+  <meta property="og:url" content="https://www.apbufoundation.org/gallery.html">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://www.apbufoundation.org/images/Whatsapp_Images/logo.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gallery &amp; Updates | APBU Foundation West Bengal">
+  <meta name="twitter:description" content="See APBU Foundation's community updates, events, and work supporting children and communities in West Bengal, India.">
+  <meta name="twitter:image" content="https://www.apbufoundation.org/images/Whatsapp_Images/logo.jpeg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "APBU Foundation Gallery and Updates",
+    "url": "https://www.apbufoundation.org/gallery.html",
+    "isPartOf": { "@type": "WebSite", "name": "APBU Foundation", "url": "https://www.apbufoundation.org/" },
+    "about": { "@type": "Organization", "name": "Aranyanchal Prativa Bikash Udyog Foundation", "alternateName": "APBU Foundation", "areaServed": "West Bengal, India" }
+  }
+  </script>
 
 
     <link href="https://fonts.googleapis.com/css?family=Mansalva|Roboto&display=swap" rel="stylesheet">
@@ -22,6 +51,127 @@
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/jpeg" href="images/Whatsapp_Images/logo.jpeg">
+    <style>
+      .gallery-hero-title,
+      .gallery-section-title {
+        font-size: 55px;
+      }
+
+      .apbu-gallery-grid {
+        display: grid;
+        gap: 28px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .apbu-gallery-item {
+        background: #ffffff;
+        border: 0;
+        box-shadow: 0 10px 24px rgba(36, 59, 83, 0.14);
+        cursor: zoom-in;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+      }
+
+      .apbu-gallery-item::after {
+        background: rgba(36, 59, 83, 0.35);
+        content: "View image";
+        color: #ffffff;
+        font-size: 16px;
+        left: 0;
+        opacity: 0;
+        padding-top: 12px;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: opacity 0.25s ease;
+      }
+
+      .apbu-gallery-item:hover::after,
+      .apbu-gallery-item:focus::after {
+        opacity: 1;
+      }
+
+      .apbu-gallery-item img {
+        display: block;
+        height: 320px;
+        object-fit: cover;
+        transition: transform 0.35s ease;
+        width: 100%;
+      }
+
+      .apbu-gallery-item:hover img,
+      .apbu-gallery-item:focus img {
+        transform: scale(1.06);
+      }
+
+      .apbu-gallery-pagination {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 42px;
+      }
+
+      .apbu-gallery-pagination button {
+        background: #e9f3f7;
+        border: 0;
+        color: #243b53;
+        cursor: pointer;
+        font-size: 17px;
+        min-height: 44px;
+        min-width: 44px;
+        padding: 8px 14px;
+      }
+
+      .apbu-gallery-pagination button:hover,
+      .apbu-gallery-pagination button.is-active,
+      .apbu-gallery-pagination button:focus {
+        background: #243b53;
+        color: #ffffff;
+      }
+
+      .apbu-gallery-lightbox {
+        align-items: center;
+        background: rgba(10, 22, 35, 0.94);
+        display: none;
+        inset: 0;
+        justify-content: center;
+        padding: 24px;
+        position: fixed;
+        z-index: 2000;
+      }
+
+      .apbu-gallery-lightbox.is-open {
+        display: flex;
+      }
+
+      .apbu-gallery-lightbox img {
+        max-height: 90vh;
+        max-width: 94vw;
+        object-fit: contain;
+      }
+
+      @media (max-width: 767px) {
+        .gallery-hero-title,
+        .gallery-section-title {
+          font-size: 42px;
+        }
+
+        .apbu-gallery-grid {
+          gap: 18px;
+        }
+
+        .apbu-gallery-item img {
+          height: 220px;
+        }
+
+        .apbu-gallery-lightbox {
+          padding: 12px;
+        }
+      }
+    </style>
 
   </head>
 
@@ -70,7 +220,7 @@
               <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About Us</a></li>
-                <li><a href="causes.html" class="nav-link">Our Causes</a></li>
+                <!-- <li><a href="causes.html" class="nav-link">Our Causes</a></li> -->
                 <li class="active"><a href="gallery.html" class="nav-link">Gallery</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
               </ul>
@@ -94,8 +244,8 @@
       
 
       <div class="box-92819">
-        <h1 class="text-white mb-3">Blog</h1>
-        <p class="lead text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ab doloremque a quia laboriosam suscipit, iure illum perspiciatis!</p>
+        <h1 class="text-white mb-3 gallery-hero-title">Gallery</h1>
+        <p class="lead text-white">Explore moments from APBU Foundation's education and community programmes in West Bengal.</p>
       </div>
 
       
@@ -107,9 +257,48 @@
     <div class="site-section">
       <div class="container">
         <div class="heading-20219 mb-5">
-          <h2 class="title text-cursive">Latest Blog</h2>
+          <h2 class="title text-cursive gallery-section-title">Gallery</h2>
+          <p>Highlights from APBU Foundation's education and community programmes.</p>
         </div>
 
+        <div class="apbu-gallery-grid" aria-label="APBU Foundation image gallery">
+          <button type="button" class="apbu-gallery-item" data-gallery-page="1" data-gallery-image="images/Whatsapp_Images/img1.jpeg" aria-label="Open gallery image 1"><img src="images/Whatsapp_Images/img1.jpeg" alt="APBU Foundation community activity 1"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="1" data-gallery-image="images/Whatsapp_Images/img2.jpeg" aria-label="Open gallery image 2"><img src="images/Whatsapp_Images/img2.jpeg" alt="APBU Foundation community activity 2"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="1" data-gallery-image="images/Whatsapp_Images/img3.jpeg" aria-label="Open gallery image 3"><img src="images/Whatsapp_Images/img3.jpeg" alt="APBU Foundation community activity 3"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="1" data-gallery-image="images/Whatsapp_Images/img4.jpeg" aria-label="Open gallery image 4"><img src="images/Whatsapp_Images/img4.jpeg" alt="APBU Foundation community activity 4"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="1" data-gallery-image="images/Whatsapp_Images/img5.jpeg" aria-label="Open gallery image 5"><img src="images/Whatsapp_Images/img5.jpeg" alt="APBU Foundation community activity 5"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="1" data-gallery-image="images/Whatsapp_Images/img6.jpeg" aria-label="Open gallery image 6"><img src="images/Whatsapp_Images/img6.jpeg" alt="APBU Foundation community activity 6"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="1" data-gallery-image="images/Whatsapp_Images/img7.jpeg" aria-label="Open gallery image 7"><img src="images/Whatsapp_Images/img7.jpeg" alt="APBU Foundation community activity 7"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="1" data-gallery-image="images/Whatsapp_Images/img8.jpeg" aria-label="Open gallery image 8"><img src="images/Whatsapp_Images/img8.jpeg" alt="APBU Foundation community activity 8"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="2" data-gallery-image="images/Whatsapp_Images/img9.jpeg" aria-label="Open gallery image 9"><img src="images/Whatsapp_Images/img9.jpeg" alt="APBU Foundation community activity 9"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="2" data-gallery-image="images/Whatsapp_Images/img10.jpeg" aria-label="Open gallery image 10"><img src="images/Whatsapp_Images/img10.jpeg" alt="APBU Foundation community activity 10"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="2" data-gallery-image="images/Whatsapp_Images/img11.jpeg" aria-label="Open gallery image 11"><img src="images/Whatsapp_Images/img11.jpeg" alt="APBU Foundation community activity 11"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="2" data-gallery-image="images/Whatsapp_Images/img12.jpeg" aria-label="Open gallery image 12"><img src="images/Whatsapp_Images/img12.jpeg" alt="APBU Foundation community activity 12"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="2" data-gallery-image="images/Whatsapp_Images/img13.jpeg" aria-label="Open gallery image 13"><img src="images/Whatsapp_Images/img13.jpeg" alt="APBU Foundation community activity 13"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="2" data-gallery-image="images/Whatsapp_Images/img14.jpeg" aria-label="Open gallery image 14"><img src="images/Whatsapp_Images/img14.jpeg" alt="APBU Foundation community activity 14"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="2" data-gallery-image="images/Whatsapp_Images/img15.jpeg" aria-label="Open gallery image 15"><img src="images/Whatsapp_Images/img15.jpeg" alt="APBU Foundation community activity 15"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="2" data-gallery-image="images/Whatsapp_Images/img16.jpeg" aria-label="Open gallery image 16"><img src="images/Whatsapp_Images/img16.jpeg" alt="APBU Foundation community activity 16"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="3" data-gallery-image="images/Whatsapp_Images/img17.jpeg" aria-label="Open gallery image 17"><img src="images/Whatsapp_Images/img17.jpeg" alt="APBU Foundation community activity 17"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="3" data-gallery-image="images/Whatsapp_Images/img18.jpeg" aria-label="Open gallery image 18"><img src="images/Whatsapp_Images/img18.jpeg" alt="APBU Foundation community activity 18"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="3" data-gallery-image="images/Whatsapp_Images/img19.jpeg" aria-label="Open gallery image 19"><img src="images/Whatsapp_Images/img19.jpeg" alt="APBU Foundation community activity 19"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="3" data-gallery-image="images/Whatsapp_Images/img20.jpeg" aria-label="Open gallery image 20"><img src="images/Whatsapp_Images/img20.jpeg" alt="APBU Foundation community activity 20"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="3" data-gallery-image="images/Whatsapp_Images/img21.jpeg" aria-label="Open gallery image 21"><img src="images/Whatsapp_Images/img21.jpeg" alt="APBU Foundation community activity 21"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="3" data-gallery-image="images/Whatsapp_Images/img22.jpeg" aria-label="Open gallery image 22"><img src="images/Whatsapp_Images/img22.jpeg" alt="APBU Foundation community activity 22"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="3" data-gallery-image="images/Whatsapp_Images/img23.jpeg" aria-label="Open gallery image 23"><img src="images/Whatsapp_Images/img23.jpeg" alt="APBU Foundation community activity 23"></button>
+          <button type="button" class="apbu-gallery-item" data-gallery-page="3" data-gallery-image="images/Whatsapp_Images/img24.jpeg" aria-label="Open gallery image 24"><img src="images/Whatsapp_Images/img24.jpeg" alt="APBU Foundation community activity 24"></button>
+        </div>
+
+        <nav class="apbu-gallery-pagination" aria-label="Gallery pages">
+          <button type="button" class="is-active" data-gallery-page-button="1" aria-label="Gallery page 1">1</button>
+          <button type="button" data-gallery-page-button="2" aria-label="Gallery page 2">2</button>
+          <button type="button" data-gallery-page-button="3" aria-label="Gallery page 3">3</button>
+        </nav>
+
+        <div class="apbu-gallery-lightbox" role="dialog" aria-modal="true" aria-label="Expanded gallery image">
+          <img src="" alt="">
+        </div>
+
+        <!--
         <div class="row">
           <div class="col-md-6">
             <div class="event-29191 mb-5">
@@ -249,6 +438,7 @@
           </div>
 
         </div>
+        -->
       </div>
     </div>
 
@@ -338,6 +528,52 @@
     <script src="js/aos.js"></script>
 
     <script src="js/main.js"></script>
+    <script>
+      (function() {
+        var galleryItems = document.querySelectorAll('.apbu-gallery-item');
+        var pageButtons = document.querySelectorAll('[data-gallery-page-button]');
+        var lightbox = document.querySelector('.apbu-gallery-lightbox');
+        var lightboxImage = lightbox.querySelector('img');
+
+        function showGalleryPage(page) {
+          galleryItems.forEach(function(item) {
+            item.hidden = item.getAttribute('data-gallery-page') !== page;
+          });
+
+          pageButtons.forEach(function(button) {
+            button.classList.toggle('is-active', button.getAttribute('data-gallery-page-button') === page);
+          });
+        }
+
+        pageButtons.forEach(function(button) {
+          button.addEventListener('click', function() {
+            showGalleryPage(button.getAttribute('data-gallery-page-button'));
+          });
+        });
+
+        galleryItems.forEach(function(item) {
+          item.addEventListener('click', function() {
+            lightboxImage.src = item.getAttribute('data-gallery-image');
+            lightboxImage.alt = item.querySelector('img').alt;
+            lightbox.classList.add('is-open');
+          });
+        });
+
+        lightbox.addEventListener('click', function() {
+          lightbox.classList.remove('is-open');
+          lightboxImage.src = '';
+        });
+
+        document.addEventListener('keydown', function(event) {
+          if (event.key === 'Escape') {
+            lightbox.classList.remove('is-open');
+            lightboxImage.src = '';
+          }
+        });
+
+        showGalleryPage('1');
+      }());
+    </script>
 
   </body>
 
