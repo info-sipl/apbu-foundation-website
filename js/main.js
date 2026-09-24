@@ -8,6 +8,191 @@ jQuery(document).ready(function($) {
 
 	"use strict";
 
+	var latestNotice = {
+		title: 'APBU Foundation Scholarship & Education Support Drive',
+		details: 'We are organising a special education support and scholarship awareness programme for deserving students across the region. Parents, guardians, and community members are invited to participate and learn about available assistance and enrolment support.',
+		date: '12 October 2026',
+		time: '10:30 AM',
+		venue: 'APBU Foundation Community Centre, Midnapore, West Bengal'
+	};
+
+	if ($('.js-notification-bell').length === 0) {
+		$('body').append('<button type="button" class="notification-bell js-notification-bell" aria-label="View latest notice"><span class="icon-bell" aria-hidden="true"></span><span class="notification-dot"></span></button>');
+	}
+
+	if ($('#support-chat-widget').length === 0) {
+		$('body').append(`
+			<div class="support-chat" id="support-chat-widget" aria-live="polite" style="display:none;">
+				<div class="support-chat__header">
+					<div class="support-chat__title"><span class="support-chat__status"></span>24x7 Support</div>
+					<button type="button" class="support-chat__toggle" aria-label="Minimize support chat">–</button>
+				</div>
+				<div class="support-chat__messages">
+					<div class="support-chat__message support-chat__message--bot">Hello! Ask anything about APBU Foundation.!</div>
+				</div>
+				<div class="support-chat__quick-replies">
+					<button type="button" class="support-chat__chip">Emergency contact</button>
+					<button type="button" class="support-chat__chip">Donation help</button>
+				</div>
+				<form class="support-chat__form">
+					<input type="text" class="support-chat__input" placeholder="Type your question..." aria-label="Type your question" />
+					<button type="submit" class="support-chat__send">Send</button>
+				</form>
+			</div>
+		`);
+	}
+
+	if ($('.support-chat-icon').length === 0) {
+		$('body').append('<button type="button" class="support-chat-icon" aria-label="Open support chat"><span class="icon-chat" aria-hidden="true"></span></button>');
+	}
+
+	var emergencyContactText = 'Emergency contact numbers: 7872136484, 7001682789, 9564023889, 9932905220.';
+
+	var getSupportReply = function(message) {
+		var text = (message || '').trim();
+		if (!text) {
+			return 'Please type your question. ' + emergencyContactText;
+		}
+
+		var lower = text.toLowerCase();
+		if (/(hello|hi|hey|good morning|good evening|good afternoon)/.test(lower)) {
+			return 'Hello! We are here to help you 24x7. ' + emergencyContactText + ' Please share your concern and we will guide you.';
+		}
+		if (/(donat|support|fund|money|payment|contribute)/.test(lower)) {
+			return 'For donation or funding support, please get in touch with our team. ' + emergencyContactText + ' We can guide you on donation steps and programme support.';
+		}
+		if (/(educat|scholarship|student|child|help)/.test(lower)) {
+			return 'For student support, education assistance, scholarship guidance, or child welfare enquiries, please contact us immediately. ' + emergencyContactText + ' We will help you with the next step.';
+		}
+		if (/(urgent|emergency|help now|immediate|danger|accident)/.test(lower)) {
+			return 'Urgent assistance is available. Please call immediately: ' + emergencyContactText + ' Our team will respond as quickly as possible.';
+		}
+		if (/(volunteer|join|become|member|community)/.test(lower)) {
+			return 'Thank you for your interest in volunteering or joining APBU Foundation. ' + emergencyContactText + ' Please call for membership and community support details.';
+		}
+		if (/(contact|phone|number|call)/.test(lower)) {
+			return 'You can reach our support team through these emergency contact numbers: ' + emergencyContactText;
+		}
+
+		return 'Thank you for reaching out. For immediate assistance, please call: ' + emergencyContactText + ' We are available to support you with general queries, donations, education support, and community assistance.';
+	};
+
+	var addChatMessage = function(message, type) {
+		var messageClass = type === 'user' ? 'support-chat__message support-chat__message--user' : 'support-chat__message support-chat__message--bot';
+		$('#support-chat-widget .support-chat__messages').append('<div class="' + messageClass + '">' + message + '</div>');
+		var messagesContainer = $('#support-chat-widget .support-chat__messages');
+		messagesContainer.scrollTop(messagesContainer[0].scrollHeight);
+	};
+
+	$(document).on('submit', '#support-chat-widget .support-chat__form', function(e) {
+		e.preventDefault();
+		var input = $('#support-chat-widget .support-chat__input');
+		var message = input.val();
+		if (!message || !message.trim()) {
+			return;
+		}
+		addChatMessage(message.trim(), 'user');
+		input.val('');
+		setTimeout(function() {
+			addChatMessage(getSupportReply(message), 'bot');
+		}, 300);
+	});
+
+	$(document).on('click', '#support-chat-widget .support-chat__chip', function() {
+		var text = $(this).text();
+		$('#support-chat-widget .support-chat__input').val(text).focus();
+		$('#support-chat-widget .support-chat__form').trigger('submit');
+	});
+
+	$(document).on('click', '#support-chat-widget .support-chat__toggle', function() {
+		$('#support-chat-widget').toggle();
+		$('.support-chat-icon').toggle();
+	});
+
+	$(document).on('click', '.support-chat-icon', function() {
+		$('#support-chat-widget').show();
+		$('.support-chat-icon').hide();
+	});
+
+	var renderNotificationModal = function() {
+		if ($('#apbu-notification-modal').length) {
+			return;
+		}
+
+		var modalMarkup = `
+			<div class="notification-modal" id="apbu-notification-modal" role="dialog" aria-modal="true" aria-labelledby="apbu-notification-title">
+				<div class="notification-modal__dialog">
+					<div class="notification-modal__header">
+						<h2 id="apbu-notification-title">Latest Notice</h2>
+						<button type="button" class="notification-modal__close" aria-label="Close notification">&times;</button>
+					</div>
+					<div class="notification-modal__body">
+						<div class="notification-modal__badge">Notice</div>
+						<h3>${latestNotice.title}</h3>
+						<p><strong>Notice Details:</strong> ${latestNotice.details}</p>
+						<div class="notification-modal__grid">
+							<div>
+								<label>Date</label>
+								<span>${latestNotice.date}</span>
+							</div>
+							<div>
+								<label>Time</label>
+								<span>${latestNotice.time}</span>
+							</div>
+							<div class="notification-modal__full">
+								<label>Venue</label>
+								<span>${latestNotice.venue}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		`;
+
+		$('body').append(modalMarkup);
+	};
+
+	var openNotificationModal = function() {
+		renderNotificationModal();
+		$('#apbu-notification-modal').addClass('is-open');
+		$('body').addClass('notification-modal-open');
+	};
+
+	var closeNotificationModal = function() {
+		$('#apbu-notification-modal').removeClass('is-open');
+		$('body').removeClass('notification-modal-open');
+	};
+
+	var ringBell = function() {
+		$('.js-notification-bell').addClass('ringing');
+		setTimeout(function() {
+			$('.js-notification-bell').removeClass('ringing');
+		}, 1800);
+	};
+
+	$(document).on('click', '.js-notification-bell', function(e) {
+		e.preventDefault();
+		openNotificationModal();
+	});
+
+	$('body').on('click', '#apbu-notification-modal', function(e) {
+		if (e.target === this) {
+			closeNotificationModal();
+		}
+	});
+
+	$('body').on('click', '.notification-modal__close', function() {
+		closeNotificationModal();
+	});
+
+	$(document).on('keydown', function(e) {
+		if (e.key === 'Escape' && $('#apbu-notification-modal').length) {
+			closeNotificationModal();
+		}
+	});
+
+	setInterval(ringBell, 2000);
+
 	var privacyPolicyHtml = `
 		<p><strong>Last Updated: 15 September 2026</strong></p>
 		<p><strong>ARANYANCHAL PRATIVA BIKASH UDYOG FOUNDATION</strong> ("Foundation", "we", "us" or "our") respects your privacy and is committed to protecting the personal information shared by our donors, members, volunteers, students, beneficiaries, website visitors and other individuals who interact with us.</p>
