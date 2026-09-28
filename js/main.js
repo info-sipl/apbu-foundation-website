@@ -288,15 +288,21 @@ jQuery(document).ready(function($) {
 		}
 	});
 
-	$(window).on('load', function() {
+	var hidePageLoader = function() {
 		var pageLoader = document.getElementById('page-loader');
 
 		if (pageLoader) {
 			setTimeout(function() {
 				pageLoader.classList.add('is-loaded');
-			}, 4000);
+			}, 1800);
 		}
-	});
+	};
+
+	if (document.readyState === 'complete') {
+		hidePageLoader();
+	} else {
+		$(window).on('load', hidePageLoader);
+	}
 
 	// $(".loader").delay(1000).fadeOut("slow");
  //  $("#overlayer").delay(1000).fadeOut("slow");	
